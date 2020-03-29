@@ -1,0 +1,74 @@
+#ingredients{
+    display:none;
+}
+#ingredients input {
+    margin:10px;
+}
+table{
+    width:80%;
+    margin: 0 auto;
+}
+.table-headers{
+    width:80%;
+    margin: 0 auto;
+}
+.table-headers p{
+    font-weight: bold;
+    font-size:20px;
+}
+th{
+    font-size:20px;
+    font-weight: bold;
+}
+tr:hover{
+    background-color: #cccccc;
+}
+tr{
+    border-bottom: 1px solid #cccccc;
+}
+td{
+    padding:5px;
+}
+#dodaj-nowy-produkt{
+    width: 80%;
+    margin: 0 auto
+}
+.td-centered{
+    text-align: center;
+}
+.header-centered{
+    text-align: center;
+}
+.input-first{
+    margin:10px;
+    width:250px;
+    display: inline-block;
+}
+.shownIngredients{
+    width:400px;
+    height:200px;
+    display: block;
+    z-index:2;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
+#blank{
+    z-index: 1;
+    display:none;
+    width:100%;
+    height:100vh;
+    opacity:0;
+    position:absolute;
+    left:0;
+    top:0;
+}
+.delete_button {
+    text-align: center;
+    color:red;
+    cursor: pointer;
+    width:20px;
+}

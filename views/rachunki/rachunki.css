@@ -1,0 +1,44 @@
+th{
+    font-size:20px;
+    font-weight: bold;
+}
+tr:hover{
+    background-color: #cccccc;
+}
+tr{
+    border-bottom: 1px solid #cccccc;
+}
+td{
+    padding:5px;
+}
+.delete_button {
+    text-align: center;
+    color:red;
+    width:20px;
+    cursor: pointer;
+}
+table{
+    width:80%;
+    margin: 0 auto;
+}
+#dodaj-rachunek form {
+    width:80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#dodaj-rachunek form .inputek{
+    align-content: flex-start;
+}
+#dodaj-rachunek .inputek{
+    width:200px;
+    margin:10px;
+}
+.dodaj_rachunek_submit{
+    display: block;
+}
+#inputy{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}

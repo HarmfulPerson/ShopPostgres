@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/produkty/produkty.css">
+    <script type="text/javascript" src="produkty.js"></script>
+</head>
+<body>
+<div id="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Produkty</a>
+    </nav>
+    <table>
+        <div class="table-headers">
+            <p>Produkty kupione</p>
+        </div>
+        <tr>
+            <th style="font-weight:bold">Id</th>
+            <th>Nazwa</th>
+            <th class="header-centered">Ilosc</th>
+            <th class="header-centered">Cena</th>
+            <th class="header-centered">Usuń</th>
+        </tr>
+        <% for (let i=0; i < produkty.length; i++) { %>
+            <tr>
+                <td style="font-weight:bold"><%= produkty[i].id_prod%></td>
+                <td><%= produkty[i].nazwa%></td>
+                <td class="td-centered"><%= produkty[i].ilosc%></td>
+                <td class="td-centered"><%= produkty[i].cena%>
+                <td class="delete_button"><span id="delete-elem">X</span></td>
+            </tr>
+        <% } %>
+    </table>
+    <div id="dodaj-nowy-produkt">
+        <h3 style="margin:10px 0px;">Dodaj nowy produkt</h3>
+        <form action="/produkty" method="post">
+            <input placeholder="Id produktu" class="form-control input-first" type="number" id="id_prod"/>
+            <input placeholder="Nazwa produktu" class="form-control input-first" id="nazwa_produktu"/>
+            <input placeholder="ilość" class="form-control input-first" id="ilosc"/>
+            <input placeholder="cena" class="form-control input-first" id="cena"/>
+            <button class="btn btn-primary" id="dodaj_produkt" type="button" type="submit">Dodaj produkt</button>
+        </form>
+    </div>
+    <table>
+        <div class="table-headers">
+            <p>Składniki w poszczególnych produktach</p>
+        </div>
+        <tr>
+            <th style="font-weight:bold">Id</th>
+            <th>Skladnik 1</th>
+            <th>Skladnik 2</th>
+            <th>Skladnik 3</th>
+        </tr>
+        <% for (let i=0; i < skladniki.length; i++) { %>
+            <tr>
+                <td style="font-weight:bold"><%= skladniki[i].id_prod%></td>
+                <td><%= skladniki[i].skladnik1%></td>
+                <td><%= skladniki[i].skladnik2%></td>
+                <td><%= skladniki[i].skladnik3%>
+            </tr>
+        <% } %>
+    </table>
+</div>
+<div id="ingredients">
+    <form>
+        <input placeholder="Skladnik1" class="form-control" id="skladnik1"/>
+        <input placeholder="Skladnik2" class="form-control" id="skladnik2"/>
+        <input placeholder="Skladnik3" class="form-control" id="skladnik3"/>
+        <div style="display: flex; justify-content: space-between">
+            <button class="btn btn-primary" style="margin: 10px" id="dodaj_skladniki" type="button" type="submit">Dodaj składniki</button>
+            <button class="btn btn-primary" style="margin: 10px 0px 10px 10px"  id="cancel">wyjdź</button>
+        </div>
+    </form>
+</div>
+<div id="blank"></div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

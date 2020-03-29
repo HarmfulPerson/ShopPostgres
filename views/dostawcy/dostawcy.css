@@ -1,0 +1,26 @@
+th{
+    font-size:20px;
+    font-weight: bold;
+}
+tr:hover{
+    background-color: #cccccc;
+}
+tr{
+    border-bottom: 1px solid #cccccc;
+}
+tr:hover{
+    cursor: pointer;
+}
+td{
+    padding:5px;
+}
+table{
+    width:80%;
+    margin: 0 auto;
+}
+.delete_button {
+    text-align: center;
+    color:red;
+    cursor: pointer;
+    width: 20px;
+}

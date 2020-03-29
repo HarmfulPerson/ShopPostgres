@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/rachunki/rachunki.css">
+    <script type="text/javascript" src="rachunki.js"></script>
+</head>
+<body>
+<div id="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Rachunki</a>
+    </nav>
+    <table>
+        <div style="width:80%; margin: 0 auto">
+            <h2>Rachunki</h2>
+        </div>
+        <tr>
+            <th>Id</th>
+            <th>rok</th>
+            <th style="text-align: center">miesiąc</th>
+            <th style="text-align: center">koszt</th>
+            <th style="text-align: center">Zapłacone</th>
+            <th style="text-align: center">Potwierdzone</th>
+            <th>Usuń</th>
+        </tr>
+        <% for (let i=0; i < rachunki.length; i++) { %>
+            <tr>
+                <td><%= rachunki[i].id_rachunku%></td>
+                <td><%= rachunki[i].rok%></td>
+                <td style="text-align: center"><%= rachunki[i].miesiąc%></td>
+                <td style="text-align: center"><%= rachunki[i].koszt%></td>
+                <td style="text-align: center">
+                    <%if (statusRachunku[i].zaplacone == true) { %>
+                        Zaplacone
+                    <% } %>
+                        <%if (statusRachunku[i].zaplacone == false) { %>
+                            Niezapłacone
+                        <% } %>
+                </td>
+                <td style="text-align: center">
+                    <%if (statusRachunku[i].potwierdzone == true) { %>
+                        Potwierdzone
+                    <% } %>
+                        <%if (statusRachunku[i].potwierdzone == false) { %>
+                            Brak potwierdzenia
+                        <% } %>
+                </td>
+                <td class="delete_button">X</td>
+            </tr>
+        <% } %>
+    </table>
+    <div id="dodaj-rachunek">
+        <h2 style="margin: 20px auto; width:80%">Dodaj rachunek</h2>
+        <form action="/rachunki" method="post">
+            <div id="inputy">
+                <input class="form-control inputek" placeholder="Id rachunki" type="number" id="id_rach"/>
+                <input class="form-control inputek" placeholder="Miesiąc" id="miesiac"/>
+                <input class="form-control inputek" placeholder="Rok" id="rok"/>
+                <input class="form-control inputek" placeholder="Koszt rachunku" id="koszt_rachunku"/><br>
+            </div>
+            <div style="display:block; margin: 0px 10px">
+                <p>Czy rachunek został opłacony?</p>
+                <input type="radio" id="zaplacone" name="zaplacone" value="true">
+                <label class="radio" for="trueZaplacone">Zapłacone</label><br>
+                <input type="radio" id="niezaplacone" name="zaplacone" value="false">
+                <label class="radio" for="falseZaplacone">Niezapłacone</label><br>
+                <button class="btn btn-primary" id="dodaj_rachunek_submit" type="button" type="submit" style="margin-top:10px">Dodaj</button>
+            </div>
+            <div style="display:block; margin: 0px 10px">
+                <p>Czy przyszło potwierdzenie zapłaty?</p>
+                <input type="radio" id="potwierdzone" name="potwierdzone" value="true">
+                <label for="truePotwierdzone">Potwierdzone</label><br>
+                <input type="radio" id="niepotwierddzone" name="potwierdzone" value="false">
+                <label for="falsePotwierdzone">Niepotwierdzone</label><br>
+            </div>
+        </form>
+    </div>
+    <p id="wrong-req"></p>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
